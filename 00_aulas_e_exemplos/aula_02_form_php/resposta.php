@@ -11,19 +11,23 @@
 
     <?php 
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-              $valor1 = $_POST['valor1'];
-              $valor2 = $_POST['valor2'];
-              $soma = $valor1 + $valor2;
+              try {
+                $valor1 = $_POST['valor1'];
+                $valor2 = $_POST['valor2'];
+                $soma = $valor1 + $valor2;
 
-              echo "O valor da soma é: $soma";
+                echo "O valor da soma é: $soma";
 
-              $div = $valor1 / $valor2;
-              $mult = $valor1 / $valor2;
+                $div = $valor1 / $valor2;
+                $mult = $valor1 / $valor2;
+              } catch(Exception $e){
+                echo $e->getMessage();
+              }
+
             } 
 
 
     ?>
-    </h1>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
