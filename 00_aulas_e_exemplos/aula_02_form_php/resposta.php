@@ -10,11 +10,18 @@
     <h1>Resposta</h1>
 
     <?php 
-            $valor1 = $_POST['valor1'];
-            $valor2 = $_POST['valor2'];
-            $soma = $valor1 + $valor2;
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+              $valor1 = $_POST['valor1'];
+              $valor2 = $_POST['valor2'];
+              $soma = $valor1 + $valor2;
 
-            echo "O valor da soma é: $soma";
+              echo "O valor da soma é: $soma";
+
+              $div = $valor1 / $valor2;
+              $mult = $valor1 / $valor2;
+            } 
+
+
     ?>
     </h1>
 
