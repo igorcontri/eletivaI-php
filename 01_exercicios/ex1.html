@@ -17,7 +17,7 @@
     <body>
         <main class="d-flex flex-column gap-3 p-3 container">
             <!-- ----- FORMULARIO 1 ----- -->
-            <h1>Formulário 1</h1>
+            <h1 class="text-danger">Formulário 1 (corrigir @)</h1>
             <form
                 action=""
                 method=""
@@ -153,7 +153,7 @@
                 </div>
             </form>
             <!-- ----- FORMULARIO 2 ----- -->
-            <h1>Formulário 2</h1>
+            <h1 class="text-danger">Formulário 2 (corrigir gap horizontal)</h1>
             <form
                 action=""
                 method=""
@@ -289,29 +289,38 @@
                         />
                     </div>
                 </div>
-                <div class="row mb-3">
+                <div class="row mb-3 w-50">
                     <div class="col">
-                        <div class="form-check">
-                            <input
-                                class="form-check-input"
-                                type="checkbox"
-                                id="invalidCheck"
-                                required
-                            />
-                            <label
-                                class="form-check-label"
-                                for="invalidCheck"
-                            >
-                                Agree to terms and conditions
-                            </label>
-                            <div class="invalid-feedback">
-                                You must agree before submitting.
-                            </div>
-                        </div>
+                        <label
+                            for="cidade"
+                            class="form-label"
+                            >Cidade</label
+                        >
+                        <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Cidade"
+                            name="cidade"
+                            id="cidade"
+                        />
+                    </div>
+                    <div class="col">
+                        <label
+                            for="uf"
+                            class="form-label"
+                            >UF</label
+                        >
+                        <input
+                            type="text"
+                            class="form-control"
+                            placeholder="UF"
+                            name="uf"
+                            id="uf"
+                        />
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <div class="col">
+                    <div class="col w-10">
                         <button
                             class="btn btn-primary"
                             type="submit"
