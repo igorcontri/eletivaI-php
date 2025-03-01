@@ -13,9 +13,20 @@
           try {
             $valor1 = $_POST['valor1'];
             $valor2 = $_POST['valor2'];
-            $multi = $valor1 * $valor2;
+            
+            if ($valor1 == $valor2)
+              echo "Valores iguais: $valor1";
 
-            echo "A multiplicação $valor1 x $valor2 é igual a $multi";
+            else {
+              if ($valor1 < $valor2){
+                while ($valor1 <= $valor2)
+                  echo $valor1++; 
+
+              } else {
+                while($valor2 <= $valor1)
+                  echo $valor2++;
+              }
+            }
           } catch(Exception $e){
             echo $e->getMessage();
           }

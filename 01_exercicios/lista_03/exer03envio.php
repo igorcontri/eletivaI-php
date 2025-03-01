@@ -9,7 +9,7 @@
   <body>
     <h1>Exercicio 03</h1>
 
-    <form method="post" action="exer03resposta.php class="border w-50 p-3"">  
+    <form method="post" action="exer03resposta.php" class="border w-50 p-3"">  
     <div class="mb-3">
         <label for="valor1" class="form-label">Informar primeiro valor</label>
         <input type="number" id="valor1" name="valor1" class="form-control" required="">
