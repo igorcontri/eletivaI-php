@@ -11,11 +11,19 @@
     <div class="border w-50 p-3">
 
       <?php 
-        $valor = $_POST['valor1'];
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+          try {
+            $valor = $_POST['valor1'];
 
-        echo "Contando de 1 a $valor... <br>";
-        for ($i = 1; $i <= $valor; $i++)
-          echo "$i "
+            echo "Contando de 1 a $valor... <br>";
+            for ($i = 1; $i <= $valor; $i++)
+              echo "$i ";
+
+          } catch(Exception $e){
+              echo $e->getMessage();
+          }
+        }
+      
 
       ?>
     </div>

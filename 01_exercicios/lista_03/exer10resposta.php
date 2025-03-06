@@ -11,14 +11,22 @@
     <div class="border w-50 p-3">
 
       <?php 
-        $valor = $_POST['valor1'];
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+          try {
+            $valor = $_POST['valor1'];
+                    
+            echo "Tabuada do $valor: <br>";
+            for ($i = 0; $i <= 10; $i++)
+            {
+              $resultado = $valor * $i;
+              echo "$valor x $i = $resultado <br>";
+            }
+
+          } catch(Exception $e){
+              echo $e->getMessage();
+          }
+        } 
         
-        echo "Tabuada do $valor: <br>";
-        for ($i = 0; $i <= 10; $i++)
-        {
-          $resultado = $valor * $i;
-          echo "$valor x $i = $resultado <br>";
-        }
 
       ?>
     </div>

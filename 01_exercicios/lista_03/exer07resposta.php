@@ -11,18 +11,25 @@
     <div class="border w-50 p-3">
 
       <?php 
-        $valor = $_POST['valor1'];
-        $total = 0;
-        $i = 1;
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+          try {
+            $valor = $_POST['valor1'];
+            $total = 0;
+            $i = 1;
 
-        echo "Somando cada número de 1 a $valor... <br>";
-        while ($i <= $valor){
-          echo "$total + $i <br>";
-          $total += $i;
-          $i += 1;
-        }
-        
-        echo "Resultado: $total"
+            echo "Somando cada número de 1 a $valor... <br>";
+            while ($i <= $valor){
+              echo "$total + $i <br>";
+              $total += $i;
+              $i += 1;
+            }
+            
+            echo "Resultado: $total";
+          } catch(Exception $e){
+              echo $e->getMessage();
+          }
+        } 
+       
 
       ?>
     </div>

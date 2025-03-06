@@ -11,17 +11,25 @@
     <div class="border w-50 p-3">
 
       <?php 
-        $valor = $_POST['valor1'];
-        $total = 0;
-        $i = 1;
-        $j = 1;
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+          try {
+            $valor = $_POST['valor1'];
+            $total = 0;
+            $i = 1;
+            $j = 1;
+            
+            echo "$valor Fatorial: <br>";
+            for ($i; $i <= $valor; $i++){
+              $total = $j * $i; // 1 * 1, 1 * 2, 2 * 3, 6 * 4, 24 * 5, 120 * 6 ...
+              $j = $total; 
+            }
+            echo "Resultado: $total";
+
+          } catch(Exception $e){
+              echo $e->getMessage();
+          }
+        } 
         
-        echo "$valor Fatorial: <br>";
-        for ($i; $i <= $valor; $i++){
-          $total = $j * $i; // 1 * 1, 1 * 2, 2 * 3, 6 * 4, 24 * 5, 120 * 6 ...
-          $j = $total; 
-        }
-        echo "Resultado: $total"
 
       ?>
     </div>

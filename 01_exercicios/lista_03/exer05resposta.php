@@ -11,51 +11,60 @@
     <h1>Reposta do Exercicio 05</h1>
 
       <?php 
-        $mes = $_POST['valor1'];
 
-        echo "O numero $mes representa o mês de ";
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+          try {
 
-        switch ($mes){
-            case 1:
-              echo "Janeiro";
-              break;
-            case 2:
-              echo "Fevereiro";
-              break;
-            case 3:
-              echo "Março";
-              break;
-            case 4:
-              echo "Abril";
-              break;
-            case 5:
-              echo "Maio";
-              break;
-            case 6:
-              echo "Junho";
-              break;
-            case 7:
-              echo "Julho";
-              break;
-            case 8:
-              echo "Agosto";
-              break;
-            case 9:
-              echo "Setembro";
-              break;
-            case 10:
-              echo "Outubro";
-              break;
-            case 11:
-              echo "Novembro";
-              break;
-            case 12:
-              echo "Dezembro";
-              break;
-            default:
-              echo "Nenhuma das opções!";
+            $mes = $_POST['valor1'];
+
+            echo "O numero $mes representa o mês de ";
+
+            switch ($mes){
+                case 1:
+                  echo "Janeiro";
+                  break;
+                case 2:
+                  echo "Fevereiro";
+                  break;
+                case 3:
+                  echo "Março";
+                  break;
+                case 4:
+                  echo "Abril";
+                  break;
+                case 5:
+                  echo "Maio";
+                  break;
+                case 6:
+                  echo "Junho";
+                  break;
+                case 7:
+                  echo "Julho";
+                  break;
+                case 8:
+                  echo "Agosto";
+                  break;
+                case 9:
+                  echo "Setembro";
+                  break;
+                case 10:
+                  echo "Outubro";
+                  break;
+                case 11:
+                  echo "Novembro";
+                  break;
+                case 12:
+                  echo "Dezembro";
+                  break;
+                default:
+                  echo "Nenhuma das opções!";
+            }
+            
+          } catch(Exception $e){
+              echo $e->getMessage();
+          }
         }
-      ?>
+    ?>    
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>

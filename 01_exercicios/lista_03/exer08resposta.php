@@ -11,18 +11,25 @@
     <div class="border w-50 p-3">
 
       <?php 
-        $valor = $_POST['valor1'];
-        $i = 1;
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+          try {
+            $valor = $_POST['valor1'];
+            $i = 1;
 
-        if ($i > $valor){
-          echo "Informe um valor válido!";
-        } else {
-          echo "Informando valores de $valor a 1: <br>";
-          do {
-            echo "$valor ";
-            $valor -= 1;
-          } while ($i <= $valor);
-        }
+            if ($i > $valor){
+              echo "Informe um valor válido!";
+            } else {
+              echo "Informando valores de $valor a 1: <br>";
+              do {
+                echo "$valor ";
+                $valor -= 1;
+              } while ($i <= $valor);
+            }
+          } catch(Exception $e){
+              echo $e->getMessage();
+          }
+        } 
+        
 
 
       ?>
