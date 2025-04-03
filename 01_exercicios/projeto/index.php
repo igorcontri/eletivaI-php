@@ -8,19 +8,24 @@
   </head>
   <body class="d-flex flex-column container justify-content-center align-items-center vh-100">
     
-    <h1>Sistema de Controle de Estoque</h1>
+    <h1>Sistema de Imobiliária</h1>
 
     <?php
+      require_once('conexao.php');
+      session_start();
       if($_SERVER['REQUEST_METHOD'] == "POST"){
 
         try{
 
           $email = $_POST['email'];
           $senha = $_POST['senha'];
+          $stmt = $pdo->prepare('SELECT * FROM usuario WHERE email = ?');
+          $stmt->execute([$email]);
+          $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
-          if (($email == "adm@adm.com" )&& ($senha == "123")){
+          if ($usuario && password_verify($senha, $usuario['senha'])){
             session_start();
-            $_SESSION['usuario'] = $email;
+            $_SESSION['usuario'] = $usuario['nome'];
             $_SESSION['acesso'] = true;
             header('location: principal.php');
 
@@ -63,6 +68,11 @@
       <div class="row">
         <div class="col">
           <button type="submit" class="btn btn-primary mt-3"> Acessar </button>
+        </div>
+        <div class="row">
+          <div class="col">
+            Não possui acesso? Clique <a href="novo_usuario.php">Aqui</a>
+          </div>
         </div>
       </div>
     </form>
