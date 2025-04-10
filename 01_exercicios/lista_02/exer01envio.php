@@ -8,7 +8,7 @@
   </head>
   <body>
       
-      <h1>Exercicio 02</h1>
+      <h1>Exercicio 01</h1>
 
      <form method="post" action="resposta.php">  
       <div class="mb-3">
