@@ -27,7 +27,6 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         
-        <!-- Links da esquerda -->
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link text-white" href="imoveis.php">Imóveis</a>
@@ -39,11 +38,13 @@
             <a class="nav-link text-white" href="locatarios.php">Locatários</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="alterar_dados.php">Alterar Dados</a>
+            <a class="nav-link text-white" href="editar_usuario.php">Alterar Dados</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-warning fw-bold" href="contratos.php">Contratos</a>
           </li>
         </ul>
 
-        <!-- Link "Sair" alinhado à direita -->
         <ul class="navbar-nav mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link text-danger fw-bold" href="sair.php">Sair</a>
