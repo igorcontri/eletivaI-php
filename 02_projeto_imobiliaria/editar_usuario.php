@@ -4,7 +4,7 @@
     function retornaDadosUsuario(){
         require("conexao.php");
         try {
-            $sql = "SELECT * FROM usuario WHERE id = ?";
+            $sql = "SELECT * FROM usuarios WHERE id = ?";
             $stmt = $pdo->prepare($sql);
             $stmt->execute([$_SESSION['id']]);
             $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -21,7 +21,7 @@
     function alterarDadosUsuario($nome, $email){
         require("conexao.php");
         try {
-            $sql = "UPDATE usuario SET nome = ?, email = ? WHERE id = ?";
+            $sql = "UPDATE usuarios SET nome = ?, email = ? WHERE id = ?";
             $stmt = $pdo->prepare($sql);
             if($stmt->execute([$nome, $email, $_SESSION['id']]))
                 echo "<p class='mt-3 text-success'> Dados alterados com sucesso! </p>";
@@ -39,7 +39,7 @@
             if ($novaSenha == $novaSenhaConfirm){
                 $usuario = retornaDadosUsuario();
                 if (password_verify($senhaAntiga, $usuario['senha'])){
-                    $sql = "UPDATE usuario SET senha = ? WHERE id = ?";
+                    $sql = "UPDATE usuarios SET senha = ? WHERE id = ?";
                     $stmt = $pdo->prepare($sql);
                     $nova_senha = password_hash($novaSenha, PASSWORD_BCRYPT);
                     if($stmt->execute([$novaSenha, $_SESSION['id']]))
@@ -64,8 +64,9 @@
     }
     $usuario = retornaDadosUsuario();
 ?>
-<h3> Alteração de dados pessoais </h3>
-<form action="" method="post" class="border w-50 p-3">
+<div class="container">
+  <h3> Alteração de dados pessoais </h3>
+  <form action="" method="post" class="border w-50 p-3">
       <div class="row mt-3">
         <div class="col">
           <label for="nome" class="form-label">Nome do Usuário: </label>
@@ -111,5 +112,7 @@
         </div>
       </div>
     </form>
+</div>
 <?php 
     require_once('rodape.php');
+?>
