@@ -15,8 +15,9 @@
 
     $proprietarios = retornaProprietarios();
 ?>
+<div class="container mt-5 mb-5">
     <h2>Proprietários</h2>
-    <a href="#" class="btn btn-success mb-3">Novo Registro</a>
+    <a href="novo_proprietario.php" class="btn btn-primary mb-3">Novo Registro</a>
     
     <?php
         if (isset($_GET['cadastro']) && $_GET['cadastro'] == true){
@@ -52,15 +53,44 @@
                     <td><?= $p['id'] ?></td>
                     <td><?= $p['nome'] ?></td>
                     <td>
-                        <a href="editar_proprietario.php?id=<?= $p['id'] ?>" class="btn btn-warning">Editar</a>
-                        <a href="consultar_proprietario?id=<?= $p['id'] ?>" class="btn btn-info">Consultar</a>
+                        <a href="editar_proprietario.php?id=<?= $p['id'] ?>" class="btn btn-dark">Editar</a>
+                        <a href="consultar_proprietario.php?id=<?= $p['id'] ?>" class="btn btn-dark">Consultar</a>
+                        <button class="btn btn-danger btn-excluir" data-id="<?= $p['id'] ?>" data-nome="<?= htmlspecialchars($p['nome'], ENT_QUOTES) ?>">Excluir</button>
                     </td>
+
                 </tr>
             <?php
             endforeach;
             ?>
         </tbody>
     </table>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+document.querySelectorAll('.btn-excluir').forEach(button => {
+    button.addEventListener('click', () => {
+        const id = button.getAttribute('data-id');
+        const nome = button.getAttribute('data-nome');
+
+        Swal.fire({
+            title: 'Tem certeza?',
+            text: `Confirma a exclusão do proprietário "${nome}"?`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#dc3545',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Sim, excluir!',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = `remover_proprietario.php?id=${id}`;
+            }
+        });
+    });
+});
+</script>
+
 <?php 
     require_once("rodape.php") 
 ?>

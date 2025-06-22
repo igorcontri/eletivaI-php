@@ -45,35 +45,32 @@
     }
     
     ?>
+<div class="container mt-5 mb-5">
+    <h2>Alterar Dados do Proprietario</h2>
 
-<h2>Alterar Dados do Proprietario</h2>
+    <p><?= $proprietario['nome'] ?></p>
+    <p><?= $proprietario['cpf_cnpj_proprietario'] ?></p>
+    <p><?= $proprietario['imoveis_adquiridos'] ?></p>
+            
+    <form method="post">
 
-<p><?= $proprietario['nome'] ?></p>
-<p><?= $proprietario['cpf_cnpj_proprietario'] ?></p>
-<p><?= $proprietario['imoveis_adquiridos'] ?></p>
-        
-<form method="post">
+        <input type="hidden" name="id" value="<?= $proprietario['id'] ?>" >
+                            
+        <div class="mb-3">
+            <label for="nome" class="form-label">Informe o Novo Nome</label>
+            <input type="text" id="nome" name="nome" class="form-control" required="">
+        </div>
 
-    <input type="hidden" name="id" value="<?= $proprietario['id'] ?>" >
-                        
-    <div class="mb-3">
-        <label for="nome" class="form-label">Informe o Novo Nome</label>
-        <input type="text" id="nome" name="nome" class="form-control" required="">
-    </div>
+        <div class="mb-3">
+            <label for="cpf_cnpj_proprietario" class="form-label">Informe o novo CPF ou CNPJ</label>
+            <input id="cpf_cnpj_proprietario" name="cpf_cnpj_proprietario" class="form-control" rows="4" required=""></input>
+        </div>
 
-    <div class="mb-3">
-        <label for="cpf_cnpj_proprietario" class="form-label">Informe o novo CPF ou CNPJ</label>
-        <input id="cpf_cnpj_proprietario" name="cpf_cnpj_proprietario" class="form-control" rows="4" required=""></input>
-    </div>
-
-    <div class="mb-3">
-        <label for="imoveis" class="form-label">Informe a nova quantidade de Imoveis </label>
-        <input id="imoveis" name="imoveis" class="form-control" rows="4" required=""></input>
-    </div>
-
-    <button type="submit" class="btn btn-primary">Enviar</button>
-</form>
-
+        <button type="submit" class="btn btn-primary">Enviar</button>
+        <button type="button" class="btn btn-secondary" onclick="history.back()">Voltar</button>
+     
+    </form>
+</div>
 
 <?php 
     require_once("rodape.php");
